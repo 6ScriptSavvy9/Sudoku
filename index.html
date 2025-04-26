@@ -1,21 +1,92 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Sudoku Game</title>
+    <title>Sudoku - Jeu Immersif</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
+    <div class="container">
+        <div class="game-title">
+            <h1>Sudoku</h1>
+            <button id="settings-button" class="settings-button" title="Paramètres">
+                <i class="fas fa-cog"></i>
+            </button>
+        </div>
 
-<h1>Sudoku Game</h1>
+        <div class="game-info">
+            <div class="timer"><i class="fas fa-clock"></i> <span id="time">00:00</span></div>
+            <div class="difficulty">Difficulté: <span id="difficulty-level">Moyen</span></div>
+        </div>
 
-<div id="game-container"></div>
+        <div id="game-container"></div>
 
-<button id="check-sudoku">Check Sudoku</button>
-<button id="reset-sudoku">Reset</button>
+        <div class="message" id="message"></div>
 
-<script src="script.js"></script>
+        <div class="controls">
+            <button id="check-sudoku"><i class="fas fa-check-circle"></i> Vérifier</button>
+            <button id="hint-button"><i class="fas fa-lightbulb"></i> Indice</button>
+            <button id="reset-sudoku"><i class="fas fa-redo-alt"></i> Nouveau jeu</button>
+        </div>
 
+        <div class="difficulty-selector">
+            <button class="difficulty-btn" data-difficulty="easy">Facile</button>
+            <button class="difficulty-btn active" data-difficulty="medium">Moyen</button>
+            <button class="difficulty-btn" data-difficulty="hard">Difficile</button>
+        </div>
+        
+        <!-- Panneau de paramètres -->
+        <div id="settings-panel" class="settings-panel">
+            <div class="settings-header">
+                <h2>Paramètres</h2>
+                <button id="close-settings" class="close-settings">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="settings-content">
+                <div class="settings-section">
+                    <h3>Effets visuels</h3>
+                    <div class="settings-option">
+                        <label for="confetti-toggle">Animation de victoire</label>
+                        <label class="switch">
+                            <input type="checkbox" id="confetti-toggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Effets sonores</h3>
+                    <div class="settings-option">
+                        <label for="sound-toggle">Sons du jeu</label>
+                        <label class="switch">
+                            <input type="checkbox" id="sound-toggle" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    <div class="settings-option">
+                        <label for="volume-slider">Volume</label>
+                        <input type="range" id="volume-slider" min="0" max="100" value="50" class="volume-slider">
+                    </div>
+                </div>
+                <div class="settings-section">
+                    <h3>Apparence</h3>
+                    <div class="settings-option">
+                        <label for="theme-selector">Thème</label>
+                        <select id="theme-selector" class="theme-selector">
+                            <option value="default">Classique</option>
+                            <option value="dark">Sombre</option>
+                            <option value="colorful">Coloré</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="settings-overlay" class="settings-overlay"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
